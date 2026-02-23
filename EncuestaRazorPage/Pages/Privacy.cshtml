@@ -1,0 +1,67 @@
+﻿@page
+@model PrivacyModel
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Use this page to detail your site's privacy policy.</p>
+
+<p>
+    @DateTime.Now
+</p>
+
+<p>
+    @*DateTime.Now*@
+</p>
+
+<p>
+  Hace tres dias fue  @(DateTime.Now - TimeSpan.FromDays(3))
+</p>
+
+@("<h3>Hola Mundo desde Razor</h3>")
+@Html.Raw("<h3>Hola Mundo desde Razor</h3>")
+
+@{
+    string message = "This is the best variable of the world!";
+}
+<p>@message</p>
+
+@{
+    string showUpperCase(string text) => text.ToUpper();
+}
+
+<p>
+    @showUpperCase("This is a text in uppercase")
+</p>
+
+@{
+    var materialList = new List<string> { "Wood", "Metal", "Plastic" };
+
+    foreach(var material in materialList)
+    {
+        // <text>Materia: @material </text><br/>
+        @:Materia @material
+        <br />
+    }
+
+    if(materialList.Count > 0)
+    {
+        <strong>We have materials to work with!</strong>
+    }
+    else
+    {
+        <strong>We doesn't have materials to work with!</strong>
+    }
+
+    var materialSelected = "any";
+    var materialMessage = materialSelected switch
+    {
+        "Wood" => "We have wood",
+        "Metal" => "We have metal",
+        "Plastic" => "We have plastic",
+        _ => "We don't have that material"
+    };
+}
+
+<h5>@materialMessage</h5>
