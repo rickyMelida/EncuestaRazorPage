@@ -16,7 +16,7 @@
 </p>
 
 <p>
-  Hace tres dias fue  @(DateTime.Now - TimeSpan.FromDays(3))
+    Hace tres dias fue @(DateTime.Now - TimeSpan.FromDays(3))
 </p>
 
 @("<h3>Hola Mundo desde Razor</h3>")
@@ -38,14 +38,14 @@
 @{
     var materialList = new List<string> { "Wood", "Metal", "Plastic" };
 
-    foreach(var material in materialList)
+    foreach (var material in materialList)
     {
         // <text>Materia: @material </text><br/>
         @:Materia @material
         <br />
     }
 
-    if(materialList.Count > 0)
+    if (materialList.Count > 0)
     {
         <strong>We have materials to work with!</strong>
     }

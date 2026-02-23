@@ -1,0 +1,38 @@
+﻿@page
+@model EncuestaRazorPage.Pages.CustomGridModel
+@{
+    List<string> columns = new List<string> { "First", "Last", "Handle" };
+}
+<div class="container mt-4">
+    <div class="row">
+        <div class="text-center show-spinner">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        <table class="table table-hover show-table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    @foreach (var column in columns)
+                    {
+                        <th scope="col">@column</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Model.Products)
+                {
+                    <tr>
+                        <th scope="row">@product.Id</th>
+                        <td>@product.Name</td>
+                        <td>@product.Price</td>
+                        <td>@product.Description</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="~/js/custom.js" asp-append-version="true"></script>
